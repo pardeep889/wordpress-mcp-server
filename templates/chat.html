@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MCP Chat</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <h1>MCP Chat Interface</h1>
+        <form method="post" action="/chat">
+            <textarea name="message" placeholder="Ask something..." required>{{ message | default('') }}</textarea>
+            <button type="submit">Send</button>
+        </form>
+        {% if response %}
+        <div class="response">
+            <h2>Response:</h2>
+            <div class="response-content">
+                {{ response | safe }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
